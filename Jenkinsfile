@@ -104,7 +104,7 @@ pipeline {
   failure {
   emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
   subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
-  mimeType: 'text/html',to: "shamitharoj@gmail.com"
+  mimeType: 'text/html',to: "sanaqvi573@gmail.com"
   }
   success {
   emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
