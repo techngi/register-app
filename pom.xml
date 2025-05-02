@@ -28,7 +28,8 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.techngi.Main</mainClass> <!-- Replace this -->
+              <mainClass>com.techngi.App</mainClass> <!-- ✅ Correct -->
+
             </manifest>
           </archive>
         </configuration>
