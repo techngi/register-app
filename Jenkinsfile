@@ -94,14 +94,13 @@ pipeline {
     stage("Trigger CD Pipeline") {
       steps {
         withCredentials([string(credentialsId: 'JENKINS_API_TOKEN', variable: 'API_TOKEN')]) {
-          sh '''
-            curl -v -k --user clouduser:$API_TOKEN \
-              -X POST \
-              -H "cache-control: no-cache" \
-              -H "content-type: application/x-www-form-urlencoded" \
-              --data "IMAGE_TAG=${IMAGE_TAG}" \
-              "http://ec2-13-232-128-192.ap-south-1.compute.amazonaws.com:8080/job/gitops-register-app-cd/buildWithParameters?token=gitops-token"
-          '''
+          sh """
+  curl -v -k --user clouduser:${JENKINS_API_TOKEN} \
+  -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' \
+  --data 'IMAGE_TAG=${IMAGE_TAG}' \
+  'http://3.27.123.68:8080/job/gitops-register-app-cd/buildWithParameters?token=gitops-token'
+"""
+
         }
       }
     }
